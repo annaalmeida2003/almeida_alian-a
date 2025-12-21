@@ -1,30 +1,36 @@
+/* Import de fontes */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap');
 
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Layout geral */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f8f8f8;
     color: #333;
+    line-height: 1.6;
 }
 
 /* HEADER */
 #header {
     background: #fff;
     border-bottom: 1px solid #eee;
+    width: 100%; /* garante largura total */
 }
 
 #navbar {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
+    width: 100%; /* ocupa toda a largura */
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #fdf6f0;
+    flex-wrap: wrap; /* permite quebrar em telas pequenas */
 }
 
 .logo {
@@ -32,18 +38,18 @@ body {
     font-size: 22px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .nav_list {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 20px;
 }
 
 .nav_list a {
     text-decoration: none;
-    color: #333;
+    color: #444;
     font-weight: 500;
 }
 
@@ -54,17 +60,19 @@ body {
 /* BOTÕES */
 .btn-default,
 .btn-primary {
-    background: #b1976b;
+    background: #c49a6c;
     color: #fff;
     padding: 12px 22px;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 500;
+    transition: 0.3s;
+    white-space: nowrap; /* evita quebra de texto */
 }
 
 .btn-default:hover,
 .btn-primary:hover {
-    background: #9e855c;
+    background: #a67c52;
 }
 
 /* HERO */
@@ -109,17 +117,27 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
+    padding: 30px;
 }
 
 .card {
-    background: #fff;
-    padding: 20px;
+    background: #fafafa;
+    border: 1px solid #eee;
     border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
 }
 
 .card img {
     width: 100%;
-    border-radius: 10px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
     margin-bottom: 15px;
 }
 
@@ -145,16 +163,12 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px;
-}
-img {
-    width: 250px;   /* largura fixa */
-    height: 250px;  /* altura fixa */
-    object-fit: cover; /* ajusta a imagem sem distorcer */
-    border-radius: 8px; /* opcional: cantos arredondados */
+    font-size: 0.9rem;
 }
 
+/* AVISO DE CONSTRUÇÃO */
 .site-construcao {
-    background: #fdf6f0; /* tom suave */
+    background: #fdf6f0;
     color: #444;
     text-align: center;
     padding: 12px;
@@ -165,6 +179,51 @@ img {
 }
 
 .site-construcao i {
-    color: #c49a6c; /* dourado suave */
+    color: #c49a6c;
     margin-right: 8px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    #navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav_list {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .btn-default {
+        width: 100%; /* botão ocupa toda largura no celular */
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    .btn-default,
+    .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .card img {
+        height: 150px;
+    }
 }
